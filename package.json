@@ -1,0 +1,66 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./index.js",
+  "scripts": {
+    "start": "nodemon",
+    "test": "npm run test:integration && npm run test:unit",
+    "clean": "npm run clean:build && npm run clean:dist",
+    "build": "npm run clean:build && gulp build",
+    "dist": "npm run clean:dist && npm run build && npm run pkg:64 && npm run pkg:32 && cp ./src/assets/ecosystem.json dist/",
+    "check": "eslint src/**/*.ts test/**/*.ts",
+    "fix": "eslint src/**/*.ts test/**/*.ts --fix",
+    "support": "echo \"The commands below it's only for support. The main commands are above (this command is only comment in json file)\"",
+    "dist:64": "npm run clean:dist && npm run build && npm run pkg:64",
+    "dist:32": "npm run clean:dist && npm run build && npm run pkg:32",
+    "pkg:64": "pkg js --targets node9-x64 --output dist/backend-x64.exe",
+    "pkg:32": "pkg js --targets node9-x86 --output dist/backend-x86.exe",
+    "test:integration": "mocha --opts ./test/integration/config ./test/integration/**/*.test.ts",
+    "test:unit": "mocha --opts ./test/unit/config ./test/unit/**/*.test.ts",
+    "clean:build": "rm -rf js",
+    "clean:dist": "rm -rf dist"
+  },
+  "bin": {
+    "backend": "./index.js"
+  },
+  "pkg": {
+    "assets": [
+      "assets/**/*",
+      "config/**/*"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chai": "^4.1.2",
+    "@types/mocha": "^2.2.48",
+    "@types/supertest": "^2.0.4",
+    "chai": "^4.1.2",
+    "cross-env": "^5.1.4",
+    "eslint": "4.9.0",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-plugin-import": "2.7.0",
+    "event-stream": "^3.3.4",
+    "gulp": "^3.9.1",
+    "gulp-babel-minify": "^0.3.0",
+    "gulp-check": "^0.1.2",
+    "gulp-eslint": "^4.0.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-sizereport": "^1.2.0",
+    "gulp-typescript": "^4.0.1",
+    "mocha": "^5.0.4",
+    "nodemon": "^1.17.2",
+    "pkg": "^4.3.0",
+    "supertest": "^3.0.0",
+    "testdouble": "^3.5.2",
+    "testdouble-chai": "^0.5.0",
+    "ts-node": "^5.0.1",
+    "typescript": "^2.7.2",
+    "typescript-eslint-parser": "14.0.0"
+  },
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

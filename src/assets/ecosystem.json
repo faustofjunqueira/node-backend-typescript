@@ -1,0 +1,15 @@
+{
+  "apps": [
+    {
+      "name": "backend",
+      "script": "./backend.exe",
+      "args": [
+        "rest"
+      ],
+      "max_memory_restart": "150M",
+      "exec_mode": "fork_mode",
+      "instances": 1,
+      "exec_interpreter": "none"
+    }
+  ]
+}

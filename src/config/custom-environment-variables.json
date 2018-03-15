@@ -1,0 +1,9 @@
+{
+  "http-server": {
+    "port": "BK_HTTP_SERVER_PORT",
+    "sslOptions": {
+      "__name": "BK_HTTP_SERVER_SSL_OPTIONS",
+      "__format": "json"
+    }
+  }
+}

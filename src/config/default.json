@@ -1,0 +1,13 @@
+{
+  "http-server": {
+    "port": 9000,
+    "sslOptions": {
+      "type": "auto",
+      "days": 2,
+      "selfSigned": true
+    }
+  },
+  "errors-table": {
+    "ERROR_SIMPLE": { "code": 1, "message": "test errors" }
+  }
+}
